@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <title>Test</title>
+    <style>
+        #list {
+            display: flex;
+            justify-content: start;
+        }
+        
+        .form-group,
+        .form-combobox,
+        .form-chk,
+        .form-radio {
+            display: flex;
+        }
+        
+        .form-group label,
+        .form-combobox label,
+        .form-radio label,
+        .form-chk label {
+            width: 150px;
+        }
+        
+        .form-group input,
+        .form-combobox select {
+            flex: 1;
+        }
+        
+        span {
+            margin-left: 150px;
+        }
+    </style>
+    <script>
+        function kiemTraTen() {
+            let ten = document.getElementById("txtHoTen").value;
+            let mauTen = /^[A-Z][A-Za-z]*(\s[A-Z][A-Za-z]*)+$/;
+            document.getElementById("errHoTen").innerHTML = mauTen.test(ten) ? "OK" : "NO";
+            return mauTen.test(ten);
+        }
+
+        function kiemTraTuoi() {
+            let ns = document.getElementById("txtNgaySinh").value;
+            let ngaySinh = new Date(ns);
+            let today = new Date();
+            let tuoi = today.getFullYear() - ngaySinh.getFullYear();
+            document.getElementById("errNgaySinh").innerHTML = tuoi >= 16 ? "OK" : "NO";
+            return tuoi >= 16;
+        }
+
+        function kiemTraSDT() {
+            let sdt = document.getElementById("txtSDT").value;
+            let mauSDT = /^0[389][0-9]{8}$/;
+            document.getElementById("errSDT").innerHTML = mauSDT.test(sdt) ? "OK" : "NO";
+            return mauSDT.test(sdt);
+        }
+
+        function kiemTraMail() {
+            let mail = document.getElementById("txtMail").value;
+            let mauMail = /^[A-Za-z0-9!@#$%^&*_]+@gmail.com$/;
+            document.getElementById("errMail").innerHTML = mauMail.test(mail) ? "OK" : "NO";
+            return mauMail.test(mail);
+        }
+
+        function tinhThoiGian() {
+            let khoaHoc = document.getElementById("selectKhoaHoc").value;
+            switch (khoaHoc) {
+                case "Anh van co ban":
+                    document.getElementById("txtTG").value = " 3 thang";
+                    break;
+                case "Anh van giao tiep":
+                    document.getElementById("txtTG").value = " 6 thang";
+                    break;
+                case "Luyen thi ielts":
+                    document.getElementById("txtTG").value = " 12 thang";
+                    break;
+                default:
+                    document.getElementById("txtTG").value = "";
+                    break;
+            }
+        }
+
+        let count = 1;
+
+        function Singin() {
+            if (!kiemTraTen() || !kiemTraTuoi() || !kiemTraSDT() || !kiemTraMail()) {
+                alert("Phải nhập đúng dữ liệu");
+                return false;
+            }
+
+            let ten = document.getElementById("txtHoTen").value;
+            let ngaySinh = document.getElementById("txtNgaySinh").value;
+            let sdt = document.getElementById("txtSDT").value;
+            let mail = document.getElementById("txtMail").value;
+            let khoaHoc = document.getElementById("selectKhoaHoc").value;
+            let hinhThuc = document.querySelector('input[name="ht"]:checked').value;
+            // let kyNang = document.querySelector('input[name="kn"]:checked').value;
+            let kyNangNodes = document.querySelectorAll('input[name="kn"]:checked');
+            let kyNang = Array.from(kyNangNodes).map(e => e.value).join(", ");
+
+            let table = document.getElementById("tableinfo").getElementsByTagName("tbody")[0];
+            let newrow = table.insertRow();
+
+            newrow.insertCell(0).innerHTML = count;
+            newrow.insertCell(1).innerHTML = ten;
+            newrow.insertCell(2).innerHTML = ngaySinh;
+            newrow.insertCell(3).innerHTML = sdt;
+            newrow.insertCell(4).innerHTML = mail;
+            newrow.insertCell(5).innerHTML = khoaHoc;
+            newrow.insertCell(6).innerHTML = hinhThuc;
+            newrow.insertCell(7).innerHTML = kyNang.split(", ").join("<br>");
+
+            count++;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="anh">
+            <img src="../image/anh.png" alt="magazin" style="object-fit: cover;" width="100%">
+        </div>
+        <div id="list" class="mt-2">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Free English Course</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Gioi Thieu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Khoa Hoc</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link bg-danger text-white" data-bs-toggle="modal" data-bs-target="#mymodal" style="border-radius: 5px;">Đăng ký</a>
+                </li>
+            </ul>
+        </div>
+
+        <table class="table table-hover" id="tableinfo">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngay Sinh</th>
+                    <th>Dien Thoai</th>
+                    <th>Email</th>
+                    <th>Khóa học</th>
+                    <th>Hinh thuc hoc</th>
+                    <th>Ky nang can luyen</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>THONG TIN DANG KY</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtHoTen" class="form-label">Họ tên</label>
+                            <input type="text" id="txtHoTen" class="form-control" placeholder="VD: Tran Quoc Nha" onblur="kiemTraTen()">
+                        </div>
+                        <span class="text-danger" id="errHoTen">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtNgaySinh" class="form-label">Ngày sinh</label>
+                            <input type="date" id="txtNgaySinh" class="form-control" onblur="kiemTraTuoi()">
+                        </div>
+                        <span class="text-danger" id="errNgaySinh">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtSDT" class="form-label">So Dien Thoai</label>
+                            <input type="text" id="txtSDT" class="form-control" onblur="kiemTraSDT()">
+                        </div>
+                        <span class="text-danger" id="errSDT">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtMail" class="form-label">Mail</label>
+                            <input type="text" id="txtMail" class="form-control" placeholder="VD: quocnha7@gmail.com" onblur="kiemTraMail()">
+                        </div>
+                        <span class="text-danger" id="errMail">*</span><br>
+
+
+                        <div class="form-combobox">
+                            <label for="selectKhoaHoc" class="form-label">Khóa học</label>
+                            <select id="selectKhoaHoc" class="form-select" onchange="tinhThoiGian()">
+                                <option value="" disabled selected hidden></option>
+                                <option value="Anh van co ban">Anh van co ban</option>
+                                <option value="Anh van giao tiep">Anh van giao tiep</option>
+                                <option value="Luyen thi ielts">Luyen thi ielts</option>
+                            </select><br>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 10px; margin-top: 10px;">
+                            <label for="txtTG" class="form-label">Thoi Gian</label>
+                            <input type="text" id="txtTG" class="form-control form-floating" disabled>
+                        </div>
+
+                        <div class="form-radio">
+                            <label class="form-label">Hinh Thuc Hoc</label>
+                            <div>
+                                <input type="radio" name="ht" value="Hoc Tai Trung Tam" checked> Hoc Tai Trung Tam<br>
+                                <input type="radio" name="ht" value="Hoc Online"> Hoc Online<br><br>
+                            </div>
+                        </div>
+
+
+                        <div class="form-chk">
+                            <label for="form-label">Cac ky nang can luyen tap</label><br>
+                            <div>
+                                <input type="checkbox" class="form-check-input" name="kn" value="Ky nang nghe"> Ky nang nghe <br>
+                                <input type="checkbox" class="form-check-input" name="kn" value="Ky nang doc"> Ky nang doc <br>
+                                <input type="checkbox" class="form-check-input" name="kn" value="Ky nang viet"> Ky nang viet <br>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="Singin()">Dang ky</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Huy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

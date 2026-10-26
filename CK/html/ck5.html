@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        img.avt{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function kiemTraMa(){
+            let ma = document.getElementById("txtMaSach").value;
+            let mauMa = /^[0-9]{3}-(2[5-9]|[3-9][0-9] )-[A-Z]{3}$/;
+            if(mauMa.test(ma)){
+                document.getElementById("errMaSach").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errMaSach").innerHTML = "NO";
+                return false;
+            }
+
+        }
+
+        function kiemTraAnh(){
+            let anh = document.getElementById("txtAnh").value;
+            let mauAnh = /\.(jpg|png|gif)$/;
+            if(mauAnh.test(anh)){
+                document.getElementById("errAnh").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errAnh").innerHTML = "NO";
+                return false;
+            }
+        }
+        function kiemTraNgay(){
+            let n = document.getElementById("txtNgay").value;
+            let ngayNhap = new Date(n);
+            let ngayHienTai = new Date();
+            if(ngayHienTai < ngayNhap){
+                document.getElementById("errNgay").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errNgay").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        function kiemTraSoLuong(){
+            let sl= document.getElementById("txtSoLuong").value;
+            let soLuong = parseInt(sl);
+            if(soLuong >0 && soLuong < 1000){
+                document.getElementById("errSoLuong").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errSoLuong").innerHTML = "NO";
+                return false;
+            }
+        }
+        function chietKhau(){
+            let nxb = document.getElementById("cbNXB").value;
+            switch(nxb){
+                case "Nha Xuat Ban Tre":
+                    document.getElementById("txtChietKhau").value= "25%";
+                    break;
+                case "Nha Xuat Ban Kim Dong":
+                    document.getElementById("txtChietKhau").value= "20%";
+                    break;
+                case "Nha Xuat Ban The Gioi Moi":
+                    document.getElementById("txtChietKhau").value= "30%";
+                    break;
+                case "Nha Xuat Ban Tri Thuc":
+                    document.getElementById("txtChietKhau").value= "35%";
+                    break;
+                default:
+                    document.getElementById("txtChietKhau").value= "";
+                    break;
+            }
+        }
+
+        let count = 1;
+        function Signin(){
+            if(!kiemTraMa() || !kiemTraAnh() ||!kiemTraNgay() ||!kiemTraSoLuong()){
+                alert("Du lieu chua hop le");
+                return false;
+            }
+            let ma = document.getElementById("txtMaSach").value;
+            let anh = document.getElementById("txtAnh").files[0];
+            let ngay = document.getElementById("txtNgay").value;
+            let soLuong = document.getElementById("txtSoLuong").value;
+            let nxb = document.getElementById("cbNXB").value;
+            let chietKhau = document.getElementById("txtChietKhau").value;
+            let theLoaiInfo = document.querySelectorAll('input[name="tl"]:checked');
+            let theLoai = Array.from(theLoaiInfo).map(e => e.value).join(", ");
+
+            let reader = new FileReader();
+
+            let table = document.getElementById("tableinfo").getElementsByTagName("tbody")[0];
+            let newrow = table.insertRow();
+
+            let row0 = newrow.insertCell(0);
+            let row1 = newrow.insertCell(1);
+            let row2 = newrow.insertCell(2);
+            let row3 = newrow.insertCell(3);
+            let row4 = newrow.insertCell(4);
+            let row5 = newrow.insertCell(5);
+            let row6 = newrow.insertCell(6);
+            let row7 = newrow.insertCell(7);
+
+            row0.innerHTML = count;
+            row1.innerHTML = ma;
+            row3.innerHTML = ngay;
+            row4.innerHTML = soLuong;
+            row5.innerHTML = nxb;
+            row6.innerHTML = chietKhau;
+            row7.innerHTML = theLoai.split(", ").join("<br>");
+               
+            reader.onload = function(e){
+                row2.innerHTML = `<img src="${e.target.result}" class="avt">`;
+            }
+            reader.readAsDataURL(anh);
+
+
+            count++;
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="anh">
+            <img src="../image/anh.png" alt="anh" width="100%">
+        </div>
+        <div class="list">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Trang chu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mymodal">Nhap sach</a>
+                </li>
+            </ul>
+        </div>
+        <table class="table table-hover" id="tableinfo">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ma Sach</th>
+                    <th>Hinh Minh Hoa</th>
+                    <th>Ngay Nhap</th>
+                    <th>So Luong</th>
+                    <th>Nha Xuat Ban</th>
+                    <th>Chiet Khau</th>
+                    <th>The loai</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>PHIEU NHAP KHO TRUC TUYEN</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtMaSach" class="form-label">Ma Sach</label>
+                            <input type="text" class="form-control" id="txtMaSach" placeholder="123-25-AZZ" onblur="kiemTraMa()">
+                        </div>
+                        <span class="text-danger" id="errMaSach">*</span>
+
+                        <div class="form-group">
+                            <label for="txtAnh" class="form-label">Hinh minh hoa</label>
+                            <input type="file" class="form-control" id="txtAnh" onchange="kiemTraAnh()">
+                        </div>
+                        <span class="text-danger" id="errAnh">*</span>
+                        
+                        <div class="form-group">
+                            <label for="txtNgay" class="form-label">Ngay Nhap</label>
+                            <input type="date" class="form-control" id="txtNgay" onblur="kiemTraNgay()">
+                        </div>
+                        <span class="text-danger" id="errNgay">*</span>
+
+                        <div class="form-group">
+                            <label for="txtSoLuong" class="form-label">So Luong</label>
+                            <input type="text" class="form-control" id="txtSoLuong" placeholder="25" onblur="kiemTraSoLuong()">
+                        </div>
+                        <span class="text-danger" id="errSoLuong">*</span>
+
+                        <div class="form-combobox">
+                            <label for="" class="form-label">Nha Xuat Ban</label><br>
+                            <select name="cbNXB" id="cbNXB" style="width: 100%; height: 35px;" onchange="chietKhau()">
+                                <option value="" disabled hidden selected></option>
+                                <option value="Nha Xuat Ban Tre">Nha Xuat Ban Tre</option>
+                                <option value="Nha Xuat Ban Kim Dong">Nha Xuat Ban Kim Dong</option>
+                                <option value="Nha Xuat Ban The Gioi Moi">Nha Xuat Ban The Gioi Moi</option>
+                                <option value="Nha Xuat Ban Tri Thuc">Nha Xuat Ban Tri Thuc</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtChietKhau" class="form-label">Chiet Khau</label>
+                            <input type="text" class="form-control" id="txtChietKhau" disabled>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label for="" class="form-label">The loai</label><br>
+                            <input type="checkbox" class="form-check-input" value="Van Hoc" name="tl" style="margin-right: 5px;">Van Hoc
+                            <input type="checkbox" class="form-check-input" value="Khoa Hoc" name="tl" style="margin-right: 5px;margin-left: 10px;">Khoa Hoc
+                            <input type="checkbox" class="form-check-input" value="Thieu Nhi" name="tl" style="margin-right: 5px;margin-left: 10px;">Thieu Nhi
+
+                        </div>
+                        <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal" style="margin-top: 10px;" onclick="Signin()">Nhap Kho</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Huy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

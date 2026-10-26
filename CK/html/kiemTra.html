@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div>
+            <img src="../image/anh.png" alt="anh" width="100%">
+        </div>
+        <div>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link">Free English Course</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Trang Chu</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Gioi Thieu</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Khoa Hoc</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mymodal">Dang Ky</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1>DANH SACH DANG KY KHOA HOC</h1>
+            <table class="table table-hover" id="tableinfo">
+                <thead>
+                    <tr>
+                        <th>So TT</th>
+                        <th>Ho Ten</th>
+                        <th>Ngay Sinh</th>
+                        <th>Dien Thoai</th>
+                        <th>Email</th>
+                        <th>Khoa Hoc</th>
+                        <th>Hinh Thuc Hoc</th>
+                        <th>Ky Nang Can Luyen</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>THONG TIN DANG KY</h4>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <label for="txtHoTen" class="form-label">Ho Ten</label>
+                            <input type="text" class="form-control" id="txtHoTen" placeholder="Tran Quoc Nha">
+                        </div>
+                        <span class="text-danger" id="errHoTen">*</span><br>
+
+                        <div>
+                            <label for="txtNgaySinh" class="form-label">Ngay Sinh</label>
+                            <input type="date" class="form-control" id="txtNgaySinh">
+                        </div>
+                        <span class="text-danger" id="errNgaySinh">*</span><br>
+
+                        <div>
+                            <label for="txtSDT" class="form-label">So Dien Thoai</label>
+                            <input type="text" class="form-control" id="txtSDT" placeholder="0365614176">
+                        </div>
+                        <span class="text-danger" id="errSDT">*</span><br>
+
+                        <div>
+                            <label for="txtMail" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="txtMail" placeholder="quocnha7@gmail.com">
+                        </div>
+                        <span class="text-danger" id="errMail">*</span><br>
+
+                        <div>
+                            <label for="selectKhoaHoc" class="form-label">Khóa học</label>
+                            <select id="selectKhoaHoc" class="form-select">
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Fullstack">Fullstack</option>
+                            </select><br>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Dang Ky</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
