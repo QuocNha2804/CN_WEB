@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: 0 auto;
+            width: 1200px;
+            height: 900px;
+            border: 1px solid black;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: #b4451f;
+        }
+        header h1{
+            font-size: 45px;
+            color: #7c7e05;
+            padding: 25px;
+            text-shadow: -4px -4px 4px white;
+        }
+        nav{
+            width: 100%;
+            height: 50px;
+            padding-left: 30px;
+            padding-top: 15px;
+        }
+        nav ul{
+            display: flex;
+            gap: 40px;
+        }
+        nav ul li{
+            list-style-type: none;
+        }
+        nav ul li a{
+            color: #b4451f;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .anh{
+            width: 100%;
+            height: 150px;
+            background-image: url(../img/line.png);
+            background-repeat: repeat-x;
+            background-size: contain;
+        }
+        section{
+            width: 65%;
+            height: 550px;
+            float: left;
+            padding: 10px;
+        }
+        section h2{
+            color: #7c7e05;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        section p{
+            color: #7c7e05;
+            font-style: italic;
+            margin-left: 45px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        section form{
+            display: grid;
+            grid-column: 1ft;
+            row-gap: 20px;
+            margin-top: 45px;
+            margin-left: 50px;
+        }
+        section form input{
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            width: 95%;
+            height: 45px;
+        }
+        section form input::placeholder{
+            padding: 3px;
+        }
+        section form button{
+            width: 130px;
+            height: 30px;
+            margin-top: 30px;
+            background-color: #7c7e05;
+            color: white;
+        }
+        aside{
+            width: 35%;
+            height: 550px;
+            float: left;
+            padding: 25px;
+            border-left: 1px solid gray;
+        }
+        aside .top{
+            height: 40%;
+            border-radius: 10px 10px 0 0;
+            background-color: #faebd8;
+            padding: 10px;
+            width: 300px;
+            margin-left: 30px;
+        }
+        aside .top h3{
+            font-size: 25px;
+            color: #505103;
+            margin-bottom: 20px;
+        }
+        aside .top ul{
+            margin-left: 60px;
+        }
+        aside .top ul li{
+            padding-bottom: 0;
+        }
+        aside .top ul li a{
+            color: #505103;
+            font-size: 20px;
+            
+        }
+        aside .bottom {
+            height: 40%;
+            width: 300px;
+            margin-left: 30px;
+            padding: 10px;
+        }
+        aside .bottom h3{
+            color: #505103;
+            font-size: 25px;
+            margin-bottom: 35px;
+        }
+        aside .bottom img{
+            float: left;
+            width: 120px;
+            margin-bottom: 20px;
+            margin-right: 15px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        aside .bottom p{
+            font-size: 20px;
+            text-align: justify;
+        }
+        footer{
+            width: 100%;
+            height: 50px;
+            background-image: url(../img/footer.png);
+            background-size: contain;
+            clear: both;
+            text-align: center;
+            padding-top: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AUTUMN TRAVEL COMPANY</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Products</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Order</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="anh">
+
+        </div>
+        <section>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore veritatis id voluptate veniam culpa hic ex voluptas minima? Distinctio, perspiciatis!</p>
+            <form action="">
+                <input type="text" id="usename" placeholder="Username">
+                <input type="text" id="email" placeholder="E-mail">
+                <input type="text" id="password" placeholder="Password">
+                <input type="text" id="retype" placeholder="Retype password">
+                <button type="button">SIGN ME UP</button>
+            </form>
+        </section>
+        <aside>
+            <div class="top">
+                <h3>Link</h3>
+                <ul>
+                    <li>
+                        <a href="#">Make your Own Tour</a>
+                    </li>
+                    <li>
+                        <a href="#">Maldives Tour</a>
+                    </li>
+                    <li>
+                        <a href="#">Nature & Adventure</a>
+                    </li>
+                    <li>
+                        <a href="#">Readymade Tours</a>
+                    </li>
+                    <li>
+                        <a href="#">Europe Tours</a>
+                    </li>
+                    <li>
+                        <a href="#">Rusia Tours</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <h3>More info</h3>
+                <img src="../img/leaf.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente est consectetur nemo fugiat voluptatem in libero repellat, alias maxime, atque aliquid, nisi saepe? Voluptas, eius?</p>
+            </div>
+        </aside>
+        <footer>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, reprehenderit?
+        </footer>
+    </div>
+
+</body>
+</html>

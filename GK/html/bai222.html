@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        width: 1200px;
+        height: 800px;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+    header{
+        width: 100%;
+        height: 150px;
+        background-color: #294e79;
+        position: relative;
+        color: white;
+    }
+    header img{
+        height: 150px;
+        margin-left: 5px;
+    }
+    header .chu{
+        position: absolute;
+        top: 20px;
+        left: 150px;
+    }
+     header .chu h2{
+        font-size:40px ;
+     }
+     header .chu p{
+        font-size:20px ;
+     }
+     header ul{
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        display: flex;
+        gap: 30px;
+     }
+     header ul li{
+        list-style-type: none;
+        padding: 15px 20px;
+        background-color: #3567a1;
+        border-radius: 3px;
+     }
+     header ul li a{
+        text-decoration: none;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+     }
+     header .search{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: white;
+        display: flex;
+        gap: 20px;
+     }
+     header .search input{
+        background-color: rgb(36, 36, 95);
+        width: 250px;
+        height: 30px;
+        border: 1px solid white;
+        color: white;
+     }
+     header .search input::placeholder{
+        padding-left: 5pxpx;
+     }
+     header .search button{
+        background-color: rgb(36, 36, 95);
+        width: 30px;
+        height: 30px;
+        border: 1px solid white;
+        color: white;
+     }
+    section{
+        width: 70%;
+        height: 600px;
+        float: left;
+        padding: 10px;
+    }
+    section h2{
+        width: 95%;
+        height: 50px;
+        margin-top: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted black ;
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    section .main{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    section .left{
+        width: 65%;
+
+    }
+    section .left p{
+        color: chocolate;
+        text-shadow: 3px 3px 3px green;
+        font-style: italic;
+        font-size: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    section .left form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 5px;
+
+    }
+    section .left form  input{
+        width: 250px;
+        height: 30px;
+        border-radius: 2px;
+    }
+    section .left form  .form-message{
+        grid-column: span 2;
+        
+    }
+    section .left form .form-message textarea{
+        width: 510px;
+        height: 150px;
+        border-radius: 2px;
+    }
+    section .left form .btn button{
+        width: 70px;
+        height: 30px;
+    }
+    section .right{
+        width: 35%;
+    }
+    section .right h3{
+        width: 90%;
+        font-size: 25px;
+        padding: 20px;
+        padding-left: 0;
+        border-bottom: 1px dotted black;
+        
+    }
+    section .right p{
+        font-size: 20px;
+        margin-top: 20px;
+
+    }
+    aside{
+        width: 30%;
+        height: 410px;
+        background-color: rgb(235, 234, 234);
+        float: left;
+        position: relative;
+        top: 50px;
+        padding: 20px;
+        right: 5px;
+    }
+    aside h3{
+        font-size: 25px;
+        padding: 20px;
+        border-bottom: 1px dotted black;
+    }
+    aside img{
+        width: 300px;
+        object-fit: cover;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    aside p{
+        font-size: 20px;
+        padding: 20px;
+    }
+    aside h4{
+        text-align: end;
+        font-size: 20px;
+    }
+    footer{
+        width: 100%;
+        height: 50px;
+        background-color: rgb(36, 36, 95);
+        clear: both;
+        color: rgb(243, 240, 240);
+        padding-top: 15px;
+        padding-left: 5px;
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <img src="../img/flower.png" alt="flower">
+            <div class="chu">
+                <h2>FlowerBox 360</h2>
+                <p>...to get your daily of luxury roses!</p>
+            </div>
+            <div class="search">
+                <input type="text" id="text" placeholder="Search the site...">
+                <button type="button">Go</button>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Promotion</a>
+                </li>
+                <li>
+                    <a href="#">Gift Baskets</a>
+                </li>
+                <li>
+                    <a href="#">Flower Services</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <h2>Why Not Contact Us Today!</h2>
+            <div class="main">
+                <div class="left">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque exercitationem ratione cumque ea hic consequatur, animi id repellat illo facere?</p>
+                    <form action="">
+                        <div class="form-name">
+                            <label for="name">Name:</label><br>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div class="form-mail">
+                            <label for="mail">Mail:</label><br>
+                            <input type="text" name="mail" id="mail">
+                        </div>
+                        <div class="form-telephone">
+                            <label for="telephone">Telephone:</label><br>
+                            <input type="text" name="telephone" id="telephone">
+                        </div>
+                        <div class="form-subject">
+                            <label for="subject">Subject:</label><br>
+                            <input type="text" name="subject" id="subject">
+                        </div>
+                        <div class="form-message">
+                            <label for="message">Message:</label><br>
+                            <textarea name="message" id="message"></textarea>
+                        </div>
+                        <div class="btn">
+                            <button type="submit">Submit</button>
+                            <button type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="right">
+                    <h3>FloweBox 360 Info!</h3>
+                    <p>Lorem, ipsum dolor sit<br> amet consectetur adipisicing elit. <br>Provident aut non pariatur<br> quos optio quasi nam<br> neque ea cum illum?</p>
+                    <p>Lorem ipsum, dolor sit amet <br>consectetur adipisicing elit. <br>Commodi, accusantium.</p>
+                    <p>Lorem ipsum dolor sit amet<br> consectetur adipisicing elit. <br>Soluta sed consequuntur<br> ipsam eaque enim debitis facilis tempora fut <br>perspiciatis nostrum?</p>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <h3>Discount & Special</h3>
+            <img src="../img/rose.png" alt="rose">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt ipsam deleniti asperiores aut fuga rerum officiis veritatis inventore delectus!</p>
+            <h4>Read more</h4>
+        </aside>
+        <footer>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ea a incidunt non, alias harum temporibus itaque libero perferendis autem?</footer>
+    </div>
+</body>
+</html>

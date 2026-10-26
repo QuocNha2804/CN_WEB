@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phiếu xác nhận đặt bàn - CRABKING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .confirmation-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgb(7, 7, 7);
+            padding-bottom: 15px;
+        }
+        .restaurant-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .document-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        .details-table {
+            width: 100%;
+    
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .details-table td {
+            padding: 8px 5px;
+            vertical-align: top;
+        }
+        .details-table td:first-child {
+            width: 40%;
+        }
+        .section-title {
+            font-weight: bold;
+            margin: 15px 0 10px 0;
+            padding-bottom: 5px;
+    
+        }
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        .checkbox-item {
+            margin: 5px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+        .policy-list {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .policy-list li {
+            margin-bottom: 8px;
+        }
+        .confirmation-section {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+        }
+        .signature-line {
+            margin: 20px 0;
+        }
+        .signature-line div {
+            margin-bottom: 5px;
+        }
+        .note {
+            font-style: italic;
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container" style="padding: 40px; padding-bottom: 75px;">
+        <div class="header">
+            <img src="../img/image.png" alt="" style="width: 100px;">
+        
+        </div>
+        
+        <div class="document-title">PHIẾU XÁC NHẬN ĐẶT BÀN</div>
+        
+        <div class="details-table">
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: block;">
+                    <p>Số phiếu: .........</p>
+                    <p>Ngày đặt: ...../...../20......</p>
+                </div>
+                <div  style="display: block;">
+                    <p>Giờ đặt: .........</p>
+                    <p>Giờ đến: ......... giờ ......... phút</p>
+                </div>
+            </div>
+        </div>
+           <div class="section-title">Thông tin khách hàng</div>
+        <table class="details-table">
+            <tr>
+                <td>Họ tên khách hàng: ..............................................................................</td>
+            </tr>
+            <tr>
+                <td>Số điện thoại: .......................................................................................</td>
+            </tr>
+            <tr>
+                <td>Số lượng khách: ..................................................................................</td>
+            </tr>
+            <tr>
+                <td>Số bàn/khu vực: ..................... (Trong nhà / Ngoài trời / VIP)</td>
+            </tr>
+            <tr>
+                <td>Nhân viên tiếp nhận: ...........................................................................</td>
+            </tr>
+        </table>
+        
+        <div class="section-title">Chi tiết đặt bàn</div>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="table-type">
+                <label for="table-type">Loại bàn: (Đôi / Nhóm nhỏ / Gia đình / VIP)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="service">
+                <label for="service">Dịch vụ đi kèm: (Trang trí sinh nhật / Tiệc gia đình / Hội họp / Combo / Gói món lẻ)</label>
+            </div>
+        </div>
+        
+        <div>Yêu cầu đặc biệt: .................................................................................</div>
+        
+        <div class="section-title">Chính sách đặt bàn</div>
+        
+        <ul class="policy-list">
+            <li>Cọc giữ bàn: ........... % (tương ứng ........... VND)</li>
+            <li>Giữ bàn đến: ........... giờ ...........</li>
+            <li>Chính sách hủy: Hủy trước giờ hẹn trên, sau đó không hoàn cọc</li>
+        </ul>
+        
+        <div class="confirmation-section">
+            <div class="section-title" >Ký tên</div>
+            
+            <div style="display: flex; justify-content: space-between;">
+                <div class="signature-line">
+                    <div>Khách hàng:</div>
+                    
+                </div>
+                
+                <div class="signature-line">
+                    <div>Nhân viên tiếp nhận:</div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

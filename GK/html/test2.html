@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: 0 auto;
+            width: 1200px;
+            height: 800px;
+            background-color: white;
+            border: 1px solid black;
+        }
+        header{
+            width: 100%;
+            height: 150px;
+            background-color: #275179;
+            position: relative;
+        }
+        header img{
+            position: absolute;
+            left: 10px;
+            height: 150px;
+        }
+        header .chu{
+            position: absolute;
+            left: 140px;
+            top: 50px;
+            color: white;
+        }
+        header .chu h2{
+            font-size: 35px;
+        }
+        header .chu p{
+            font-size: 25px;
+        }
+        header .search{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        header .search input{
+            background-color: #1d3350;
+            width: 150px;
+            height: 30px;
+            color: white;
+        }
+        header .search input::placeholder{
+            color: white;
+        }
+        header .search button{
+            background-color: #1d3350;
+            width: 30px;
+            height: 25px;
+            color: white;
+        }
+        header ul{
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        header ul li{
+            list-style-type: none;
+            padding: 15px 20px;
+            background-color: #3c71b4;
+            border-radius: 3px;
+        }
+        header ul li a{
+            text-decoration: none;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        section{
+            width: 65%;
+            height: 600px;
+            float: left;
+        }
+        section h2{
+            font-size: 25px;
+            margin-top: 30px;
+            padding: 15px;
+            border-bottom: 1px dotted black;
+            width: 95%;
+        }
+        section .main{
+            display: flex;
+            width: 100%;
+        }
+        section .main .left{
+            width: 60%;
+            padding: 15px;
+        }
+        section .main .left p{
+            color: chocolate;
+            text-shadow: 3px 3px 3px green;
+            font-style: italic;
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+        section .main .left form{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 15px;
+            column-gap: 5px;
+        }
+        section .main .left form input{
+            width: 200px;
+            height: 25px;
+            border-radius: 3px;
+        }
+        section .main .left form .text{
+            grid-column: span 2;
+        }
+        section .main .left form textarea{
+            width: 410px;
+            height: 150px;
+            border-radius: 3px;
+        }
+        section .main .left form .nut button{
+            width: 80px;
+            height: 25px;
+            border: 1px solid black;
+        }
+        section .main .right{
+            width: 40%;
+            margin-top: -30px;
+        }
+        section .main .right h2{
+            font-size: 25px;
+            padding: 20px;
+            border-bottom: 1px dotted black;
+            width: 80%;
+        }
+        section .main .right p{
+            padding: 10px;
+        }
+
+        aside{
+            width: 35%;
+            height: 400px;
+            float: left;
+            position: relative;
+            top: 70px;
+            background-color: rgb(223, 228, 233);
+            padding: 10px;
+
+        }
+        aside h2{
+            font-size: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dotted black;
+            margin-bottom: 20px;
+        }
+        aside img{
+            width: 80%;
+            margin-bottom: 20px;
+            padding: 5px;
+            border: 1px solid black;
+            margin-left: 37px;
+        }
+        aside p{
+            padding-bottom: 20px;
+            padding-left: 35px;
+            padding-right: 35px;
+
+        }
+        aside a{
+            display:block;
+            text-decoration: none;
+            text-align: end;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #275179;
+        }
+        footer{
+            width: 100%;
+            height: 50px;
+            clear: both;
+            background-color: #112b4d;
+            padding: 5px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../img/flower.png" alt="flower">
+            <div class="chu">
+                <h2>FlowerBox 360</h2>
+                <p>....to get daily dose of luxury roses!</p>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search this site..">
+                <button type="button">Go</button>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Promotion</a>
+                </li>
+                <li>
+                    <a href="#">Gift Baskets</a>
+                </li>
+                <li>
+                    <a href="#">Flower Services</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <h2>Why Not Contact Us Today!</h2>
+           <div class="main">
+            <div class="left">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste eos nemo soluta nam quaerat eum repellendus sed inventore hic quam.</p>
+                <form action="">
+                    <div class="form-name">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="form-email">
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email">
+                    </div>
+                    <div class="form-telephone">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" id="telephone">
+                    </div>
+                    <div class="form-subject">
+                        <label for="subject">Subject:</label><br>
+                        <input type="text" id="subject">
+                    </div>
+                    <div class="text">
+                        <label for="text">Message:</label><br>
+                        <textarea id="text"></textarea>
+                    </div>
+                    <div class="nut">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <h2>FlowerBox 360</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam dignissimos adipisci pariatur ex, obcaecati in. Dolores atque provident nostrum ratione, temporibus molestias ullam illo tempora.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab deserunt repellat ipsa libero excepturi eaque quaerat minus quas voluptate ipsum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tempora dicta molestiae, ut, ratione quo esse corrupti minima provident ullam nobis, consectetur quasi cumque assumenda!</p>
+            </div>
+           </div>
+        </section>
+        <aside>
+            <h2>Discounts & Special</h2>
+            <img src="../img/rose.png" alt="rose">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vitae ut nobis sapiente dolore incidunt, fuga ex eaque molestiae, earum iure, ipsum numquam quas debitis? Molestias aperiam repellat blanditiis architecto!</p>
+            <a href="#">Read more</a>
+        </aside>
+        <footer>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta earum ratione, amet repellendus quae consequuntur.</footer>
+    </div>
+</body>
+</html>
