@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <title>Trần Quốc Nhã 23636501</title>
+  <style>
+    *{
+      font-family: 'Times New Roman', Times, serif;
+      
+    }
+    #list{
+      display: flex;
+      justify-content: left;
+    }
+    #list>ul>li>button{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 700;
+    }
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      width: 120px;
+      margin-right: 10px;
+    }
+
+    .form-group input,.form-group select {
+      flex: 1; /*chiem toan bo phan tu cha*/
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio-group .form-check {
+      margin-right: 10px;
+    }
+
+    .text-danger {
+      display: block; /* nam duoi input */
+      margin-left: 130px;
+    }
+
+    span{
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+    #dathoa{
+      width: 100%;
+    }
+
+  </style>
+  <script>
+    function kiemTraTen(){
+      let ten = document.getElementById("txtHoTen").value;
+      let mauTen = /^[A-Z][A-Za-z]*(\s[A-Z][A-Za-z]*)+$/;
+      if(mauTen.test(ten)){
+        document.getElementById("errHoTen").innerHTML = "OK";
+        return true;
+      }
+      else{
+        document.getElementById("errHoTen").innerHTML = "NO";
+        return false;
+      }
+    }
+
+    function kiemTraNgay() {
+    let ns = document.getElementById("txtNgayDat").value;
+    let ngayDat = new Date(ns);
+    let ngayHienTai = new Date();
+
+    let ngayD = ngayDat.getDate();
+    let thangD = ngayDat.getMonth();
+    let namD = ngayDat.getFullYear();
+
+    let ngayH = ngayHienTai.getDate();
+    let thangH = ngayHienTai.getMonth();
+    let namH = ngayHienTai.getFullYear();
+
+    // so sanh ngay thang nam
+    if (namD > namH || (namD === namH && thangD > thangH) || (namD === namH && thangD === thangH && ngayD > ngayH)) {
+        document.getElementById("errNgayDat").innerHTML = "OK";
+        return true;
+    } else {
+        document.getElementById("errNgayDat").innerHTML = "NO";
+        return false;
+    }
+}
+
+    function kiemTraMail(){
+      let mail = document.getElementById("txtMail").value;
+      let mauMail = /^[a-zA-Z0-9@._-]{3,}@iuh\.edu\.vn$/;
+      if(mauMail.test(mail)){
+        document.getElementById("errMail").innerHTML = "OK";
+        return true;
+      }
+      else{
+        document.getElementById("errMail").innerHTML = "NO";
+        return false;
+      }
+    }
+    function kiemTraSoDienThoai(){
+      let sdt = document.getElementById("txtSoDienThoai").value;
+      let mausdt = /^0[2-9]{3}\.\d{3}\.\d{3}$/;
+      if(mausdt.test(sdt)){
+        document.getElementById("errSoDienThoai").innerHTML = "OK";
+        return true;
+      }
+      else{
+        document.getElementById("errSoDienThoai").innerHTML = "NO";
+        return false;
+      }
+    }
+    let count = 1;
+    function Singin(){
+  if(!kiemTraTen() || !kiemTraNgay() || !kiemTraMail() || !kiemTraSoDienThoai()){
+    alert("Phải nhập đúng dữ liệu!");
+    return false;
+  }
+
+  let ten = document.getElementById("txtHoTen").value;
+  let ngayDat = document.getElementById("txtNgayDat").value;
+  let mail = document.getElementById("txtMail").value;
+  let sdt = document.getElementById("txtSoDienThoai").value;
+  let loaiHoa = document.getElementById("cbLoaiHoa").value; 
+
+  // lay loai thanh toan
+  let loaiThanhToan = document.querySelector('input[name="tt"]:checked');
+  loaiThanhToan = loaiThanhToan ? loaiThanhToan.nextElementSibling.textContent : "Chưa chọn";
+
+  let table = document.getElementById("tableinfo").getElementsByTagName("tbody")[0];
+  let newrow = table.insertRow();
+
+  let cell0 = newrow.insertCell(0);
+  let cell1 = newrow.insertCell(1);
+  let cell2 = newrow.insertCell(2);
+  let cell3 = newrow.insertCell(3);
+  let cell4 = newrow.insertCell(4);
+  let cell5 = newrow.insertCell(5);
+  let cell6 = newrow.insertCell(6);
+
+  cell0.innerHTML = count;
+  cell1.innerHTML = ten;
+  cell2.innerHTML = sdt;
+  cell3.innerHTML = ngayDat;
+  cell4.innerHTML = mail;
+  cell5.innerHTML = document.querySelector(`#cbLoaiHoa option[value="${loaiHoa}"]`).textContent;
+  cell6.innerHTML = loaiThanhToan;
+
+  count++;
+
+}
+
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="anh">
+      <img src="../img/logo.jpg" alt="magazin" style="object-fit: cover;" width="100%">
+    </div>
+    <div id="list" class="mt-2">
+      <ul class="nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-light text-primary" >TRANG CHỦCHỦ</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-light text-primary" data-bs-toggle="modal" data-bs-target="#mymodal">ĐẶT MUA HOA</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-light text-primary" >CÂY XANH VĂN PHÒNG</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-light text-primary" >TIN TỨC</button>
+        </li>
+      </ul>
+    </div>
+
+   <div class="row">
+      <div class="anh2 col-2">
+        <img src="../img/nho.jpg" alt="nho" width="100%" style="object-fit: cover;">
+      </div>
+     <div class="bang col-10">
+      <h4 style="text-align: center; font-weight: bold; font-size: 30px;">DANH SÁCH THÔNG TIN ĐẶT HÀNG NHANH</h4>
+        <table class="table table-hover" id="tableinfo">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>HỌ TÊN</th>
+              <th>SỐ ĐIỆN THOẠI</th>
+              <th>NGÀY ĐẶT</th>
+              <th>EMAIL</th>
+              <th>LOẠI HOA</th>
+              <th>LOẠI THANH TOAN</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+     </div>
+     <p style="text-align: center;">23636501 - Trần Quốc Nhã - DHKTPM19A</p>
+   </div>
+    <div class="modal" id="mymodal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>ĐẶT MUA HOA</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="txtHoTen" class="form-label">Họ Tên</label>
+              <input type="text" id="txtHoTen" class="form-control" placeholder="Họ Tên" onblur="kiemTraTen()">
+            </div>
+            <span class="text-danger" id="errHoTen">*</span>
+          
+            <div class="form-group">
+              <label for="txtSoDienThoai" class="form-label">Số Điện Thoại</label>
+              <input type="text" id="txtSoDienThoai" class="form-control" placeholder="Số Điện Thoại" onblur="kiemTraSoDienThoai()">
+            </div>
+            <span class="text-danger" id="errSoDienThoai">*</span>
+          
+            <div class="form-group">
+              <label for="txtNgayDat" class="form-label">Ngày Đặt</label>
+              <input type="date" id="txtNgayDat" class="form-control" onblur="kiemTraNgay()">
+            </div>
+            <span class="text-danger" id="errNgayDat">*</span>
+          
+            <div class="form-group">
+              <label for="txtMail" class="form-label">Mail Của Bạn</label>
+              <input type="text" id="txtMail" class="form-control" placeholder="Mail" onblur="kiemTraMail()">
+            </div>
+            <span class="text-danger" id="errMail">*</span>
+          
+            <!-- combobox chon loai hoa -->
+            <div class="form-group">
+              <label for="cbLoaiHoa" class="form-label">Chọn Loại Hoa</label>
+              <select id="cbLoaiHoa" class="form-select">
+                <option value="hoa_hong">Hoa Hồng Vàng</option>
+                <option value="hoa_cuc">Hoa Đồng Tiền</option>
+                <option value="hoa_lan">Hoa Tulip</option>
+                <option value="hoa_lan">Hoa Cẩm Tú Cầu</option>
+                <option value="hoa_lan">Hoa Lan</option>
+              </select>
+            </div>
+          
+            <!-- radio thanh toan -->
+            <div class="form-group">
+              <label class="form-label">Loại Thanh Toán</label>
+              <div class="radio-group">
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="tienmat" name="tt"/>
+                  <label for="tienmat" class="form-label">Tiền Mặt</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="ck" name="tt"/>
+                  <label for="ck" class="form-label">Chuyển Khoản</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="Singin()" id="dathoa">Đặt Hoa</button>
+            <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoat</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

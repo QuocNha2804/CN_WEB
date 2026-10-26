@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        .form-group, .fomr-radio, .form-combobox{
+            display: flex;
+            justify-content: center;
+        }
+        .form-group label, .form-combobox label{
+            width: 150px;
+            margin-right: 10px;
+        }
+        span{
+            margin-left: 120px;
+        }
+        .form-radio label{
+            width: 100px;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function kiemTraTen(){
+            let ten = document.getElementById("txtHoTen").value;
+            let mauTen = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+            if(mauTen.test(ten)){
+                document.getElementById("errHoTen").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errHoTen").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        function kiemTraTuoi(){
+            let ns = document.getElementById("txtNgaySinh").value;
+            let ngaySinh = new Date(ns);
+            let namSinh = ngaySinh.getFullYear();
+            let ngayHienTai = new Date();
+            let namHienTai = ngayHienTai.getFullYear();
+            if(namHienTai - namSinh >= 16){
+                document.getElementById("errNgaySinh").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errNgaySinh").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        function kiemTraMail(){
+            let mail = document.getElementById("txtMail").value;
+            let mauMail = /^[A-Za-z0-9!@#$%^&*]+@gmail.com+$/;
+            if(mauMail.test(mail)){
+                document.getElementById("errMail").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errMail").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        function kiemTraDiaChi(){
+            let diaChi = document.getElementById("txtDiaChi").value;
+            let mauDiaChi = /^[0-9]{3}\s[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+            if(mauDiaChi.test(diaChi)){
+                document.getElementById("errDiaChi").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errDiaChi").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        function kiemTraSDT(){
+            let sdt = document.getElementById("txtSDT").value;
+            let mauSDT = /^0[2-9][0-9]{8}$/;
+            if(mauSDT.test(sdt)){
+                document.getElementById("errSDT").innerHTML = "OK";
+                return true;
+            }
+            else{
+                document.getElementById("errSDT").innerHTML = "NO";
+                return false;
+            }
+        }
+
+        let count = 1;
+        function Signin(){
+            if(!kiemTraTen() || !kiemTraTuoi() || !kiemTraMail || !kiemTraDiaChi() || !kiemTraSDT()){
+                alert("Can nhap dung du lieu");
+                return false;
+            }
+
+            let hoTen = document.getElementById("txtHoTen").value;
+            let ngaySinh = document.getElementById("txtNgaySinh").value;
+            let mail = document.getElementById("txtMail").value;
+            let diaChi = document.getElementById("txtDiaChi").value;
+            let sdt = document.getElementById("txtSDT").value;
+            let gioiTinh = document.querySelector("input[name=gt]:checked").value;
+            let chuyenNganh = document.getElementById("cbChuyenNganh").value;
+
+            let table = document.getElementById("tableinfo").getElementsByTagName("tbody")[0];
+            let newrow = table.insertRow();
+            let cell0 = newrow.insertCell(0);
+            let cell1 = newrow.insertCell(1);
+            let cell2 = newrow.insertCell(2);
+            let cell3 = newrow.insertCell(3);
+            let cell4 = newrow.insertCell(4);
+            let cell5 = newrow.insertCell(5);
+            let cell6 = newrow.insertCell(6);
+            let cell7 = newrow.insertCell(7);
+
+            cell0.innerHTML = count;
+            cell1.innerHTML = hoTen;
+            cell2.innerHTML = ngaySinh;
+            cell3.innerHTML = mail;
+            cell4.innerHTML = diaChi;
+            cell5.innerHTML = sdt;
+            cell6.innerHTML = gioiTinh;
+            cell7.innerHTML = chuyenNganh;
+
+            count++;
+
+
+
+        }
+
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="anh">
+            <img src="../img/banner-5.png" alt="banner" width="100%">
+        </div>
+        <div>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mymodal">Model</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+            </ul>
+        </div>
+        <table class="table table-hover" id="tableinfo">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ho Ten</th>
+                    <th>Ngay Sinh</th>
+                    <th>Mail</th>
+                    <th>Dia Chi</th>
+                    <th>SDT</th>
+                    <th>Gioi Tinh</th>
+                    <th>Chuyen Nganh</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Tran Quoc Nha</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtHoTen" class="form-label">Ho Ten</label>
+                            <input type="text" id="txtHoTen" class="form-control" placeholder="Tran Quoc Nha" onblur="kiemTraTen()">
+                        </div>
+                        <span class="text-danger" id="errHoTen">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtNgaySinh" class="form-label">Ngay Sinh</label>
+                            <input type="date" id="txtNgaySinh" class="form-control" onblur="kiemTraTuoi()">
+                        </div>
+                        <span class="text-danger" id="errNgaySinh">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtMail" class="form-label"> Mail</label>
+                            <input type="text" id="txtMail" class="form-control" placeholder="quocnha7@gmail.com" onblur="kiemTraMail()">
+                        </div>
+                        <span class="text-danger" id="errMail">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtDiaChi" class="form-label">Dia Chi</label>
+                            <input type="text" id="txtDiaChi" class="form-control" placeholder="842 Nguyen Kiem" onblur="kiemTraDiaChi()">
+                        </div>
+                        <span class="text-danger" id="errDiaChi">*</span><br>
+
+                        <div class="form-group">
+                            <label for="txtSDT" class="form-label">So Dien Thoai</label>
+                            <input type="text" id="txtSDT" class="form-control" placeholder="0365614176" onblur="kiemTraSDT()">
+                        </div>
+                        <span class="text-danger" id="errSDT">*</span><br>
+
+                        <div class="form-radio">
+                            <label for="">Gioi Tinh</label>
+                            <input type="radio" name="gt" value="Nam" class="form-check-input" checked>Nam
+                            <input type="radio" name="gt" value="Nu" class="form-check-input" style="margin-left: 10px;">Nu<br><br>
+                        </div>
+                        
+                        <div class="form-combobox">
+                            <label for="cbChuyenNganh">Chuyen Nganh</label>
+                            <select name="cbChuyenNganh" id="cbChuyenNganh" class="form-select">
+                                <option value="KHMT" selected>KHMT</option>
+                                <option value="KTPM">KTPM</option>
+                                <option value="HTTT">HTTT</option>
+                                <option value="KHDL">KHDL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" style="width: 100%;" onclick="Signin()">Luu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

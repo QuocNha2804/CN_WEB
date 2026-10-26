@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        #btn{
+            gap: 10px;
+        }
+    </style>
+    <script>
+        function kiemTraTenDN(){
+            let ten = document.getElementById("txtTenDN").value;
+            let mauTen = /^[A-Z]{1}[A-Za-z]*(\s[A-Z]{1}[A-Za-z])+$/;
+            if(mauTen.test(ten)){
+                document.getElementById("errTDN").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errTDN").innerHTML = "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraMK(){
+            let mk = document.getElementById("txtMK").value;
+            let mauMK = /^\w{9,15}$/;
+            if(mauMK.test(mk)){
+                document.getElementById("errMatkhau").innerHTML = "Ok BABYYYYYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errMatkhau").innerHTML = "NOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraMKx2(){
+            let mk = document.getElementById("txtMKx2").value;
+            let mauMK = /^\w{9,15}$/;
+            if(mauMK.test(mk)){
+                document.getElementById("errMatkhaux2").innerHTML = "Ok BABYYYYYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errMatkhaux2").innerHTML = "NOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraTen(){
+            let ten = document.getElementById("txtTen").value;
+            let mauTen = /^[A-Z]{1}[A-Za-z]*(\s[A-Z]{1}[A-Za-z])+$/;
+            if(mauTen.test(ten)){
+                document.getElementById("errTen").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errTen").innerHTML = "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraTuoi(){
+            let ns = document.getElementById("txtNgaySinh").value;
+            let nam = new Date(ns);
+            let namHienTai = new Date();
+            let tuoi = namHienTai.getFullYear() - nam.getFullYear(ns);
+            if(tuoi >=16){
+                document.getElementById("errNgaySinh").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errNgaySinh").innerHTML = "NOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraDC(){
+            let diaChi = document.getElementById("txtDiaChi").value;
+            let mauDiaChi = /^\d{1,4}\s[\w\s]+,\s[\w\s]+,\s[\w\s]+$/
+            if(mauDiaChi.test(diaChi)){
+                document.getElementById("errDiaChi").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errDiaChi").innerHTML = "NOOOOOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraDT(){
+            let dienThoai = document.getElementById("txtDienThoai").value;
+            let mauDT = /^(0[2-9][0-9])\d{7}$/;
+            if(mauDT.test(dienThoai)){
+                document.getElementById("errDienThoai").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errDienThoai").innerHTML = "NOOOOOOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+        function kiemTraMail(){
+            let mail = document.getElementById("txtEmail").value;
+            let mailMau = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(mailMau.test(mail)){
+                document.getElementById("errEmail").innerHTML = "OK BABYYYYYYYYYYYYYYYYY";
+                return true;
+            }
+            else{
+                document.getElementById("errEmail").innerHTML = "NOOOOOOOOOOOOOOOOOOO";
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="anh">
+            <img src="../img/car12.jpg" alt="xe" width="100%" style="object-fit: cover">
+        </div>
+
+        <div class="link">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link</a>
+                </li>
+                <li class="nav-item"><input type="button" value="Open modal" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#mymodal"></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Link</a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Dang ki tai khoan</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--  -->
+                        <label for="" class="form-label">Ten dang nhap</label>
+                        <input type="text" class="form-control" id="txtTenDN" placeholder="Ten dang nhap" onblur="kiemTraTenDN()">
+                        <span class="text-danger" id="errTDN">*</span><br>
+                        <!--  -->
+                        <label for="" class="form-label">Mat Khau</label>
+                        <input type="text" class="form-control" id="txtMK" placeholder="Mat khau" onblur="kiemTraMK()">
+                        <span class="text-danger" id="errMatkhau">*</span><br>
+                        <!--  -->
+                        <label for="" class="form-label">Nhap lai mat khau</label>
+                        <input type="text" class="form-control" id="txtMKx2" placeholder="Nhap lai mat khau" onblur="kiemTraMKx2()">
+                        <span class="text-danger" id="errMatkhaux2">*</span><br>
+                        <!--  -->
+                        <h4 class="modal-title text-center">Thong tin ca nhan</h4>
+                        <label for="" class="form-label">Ho ten</label>
+                        <input type="text" class="form-control" id="txtTen" placeholder="ho va ten" onblur="kiemTraTen()">
+                        <span class="text-danger" id="errTen">*</span><br>
+                        <!--  -->
+                        <label for="" class="form-label">Ngay sinh</label>
+                        <input type="date" class="form-control" id="txtNgaySinh" onblur="kiemTraTuoi()">
+                        <span class="text-danger" id="errNgaySinh">*</span><br>
+                        <!--  -->
+                        <div class="check d-flex" id="btn">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="nam" name="gioitinh">
+                                <label for="nam" class="form-check-label">Nam</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="nu" name="gioitinh">
+                                <label for="nu" class="form-check-label">Nu</label>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <label for="" class="form-label">Dia chi</label>
+                        <input type="text" class="form-control" id="txtDiaChi" placeholder="Dia chi" onblur="kiemTraDC()">
+                        <span class="text-danger" id="errDiaChi">*</span><br>
+                        <!--  -->
+                        <label for="" class="form-label">Dien Thoai</label>
+                        <input type="text" class="form-control" id="txtDienThoai" placeholder="Dien Thoai" onblur="kiemTraDT()">
+                        <span class="text-danger" id="errDienThoai">*</span><br>
+                        <!--  -->
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="txtEmail" placeholder="Email" onblur="kiemTraMail()">
+                        <span class="text-danger" id="errEmail">*</span><br>
+                        <!--  -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Dang Nhap</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoat</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ho ten</th>
+                    <th>Ngay Sinh</th>
+                    <th>Gioi tinh</th>
+                    <th>Dia chi</th>
+                    <th>Dien thoai</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                    <td>Lorem, ipsum dolor.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

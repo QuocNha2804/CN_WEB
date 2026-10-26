@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <title>Bai2a</title>
+    <style>
+      .container {
+        border: 1px solid rgb(61, 43, 225);
+        width: 45%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container p-4">
+      <table class="table p-0 m-0">
+        <tbody>
+          <tr>
+            <td><h5>Checkout</h5></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Product1</h5>
+              <p class="text-secondary">Lorem ipsum dolor sit amet.</p>
+            </td>
+            <td class="text-end">$200</td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Product2</h5>
+              <p class="text-secondary">Lorem ipsum dolor sit amet.</p>
+            </td>
+            <td class="text-end">$120</td>
+          </tr>
+          <tr>
+            <td><h5>Total</h5></td>
+            <td class="text-end">$320</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Credit Card Details</h4>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-8">
+            <label class="form-label">CARD HOLDER</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Card Holder"
+              id="cardholder"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">EXPIRATION DATE</label>
+            <div class="d-flex">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="MM"
+                style="width: 60px"
+              />
+              <span class="align-self-center ms-1 me-1">/</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="YY"
+                style="width: 60px"
+              />
+            </div>
+          </div>
+          <div class="col-9">
+            <label class="form-label">CARD NUMBER</label>
+            <input type="text" class="form-control" placeholder="Card Number" />
+          </div>
+          <div class="col-3">
+            <label class="form-label">CVC</label>
+            <input type="text" class="form-control" placeholder="CVC" />
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary w-100">Proceed</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

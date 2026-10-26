@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai1b</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 0;
+            transform: scale(1);
+            transform-origin: top left;
+            
+        }
+        #container{
+            margin: 10% auto;
+            width: 1000px;
+            height: 860px;
+            border: 1px solid rgb(155, 54, 54);
+            box-shadow: 0 -3px 5px rgb(226, 168, 168);
+            background-color: aliceblue;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            padding: 25px;
+            text-shadow: 4px 20px 10px rgb(188, 95, 95);
+            color: brown;
+            font-style: italic;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        #container section h2{
+            background-color: rgb(244, 199, 199);
+            color: brown;
+        }
+        #container section ul .mau{
+            color: rgb(164, 48, 16);
+        }
+        #container section ul .mau .gach{
+            text-decoration-line: underline;
+        }
+        a{
+            color: red;
+        }
+        #container section ul{
+            padding-left: 50px;
+        }
+        #container nav{
+            width: 100%;
+            height: 50px;
+            background-color: rgb(244, 199, 199);
+            padding: 5px;
+            align-items: center;
+            display: flex;
+        }
+        #container nav #nha{
+            padding-left: 50px;
+        }
+        #container nav a{
+        
+            padding-right: 20px;
+            border-right: 1px solid rgb(110, 106, 106);
+            color: aliceblue;
+            text-decoration: none;
+            font-size: small;
+        }
+        #container nav #text{
+            padding-left: 10px;
+        }
+        #container nav #go{
+            margin-right: 50px;
+            margin-left: 0;
+        }
+        #left{
+            width: 20%;
+            height: 650px;
+            background-color: aliceblue;
+            float: left;
+            
+        }
+        #left p{
+            border: 1px solid rgb(244, 199, 199);
+            margin: 5px;
+            margin-left: 0;
+            border-radius: 20px;
+            background-color: rgb(244, 199, 199);
+            color: aliceblue;
+
+        }
+       #left img{
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 50%;
+            box-shadow: 5px 15px 7px rgb(239, 129, 129);
+       }
+        section{
+            width: 50%;
+            height: 650px;
+            background-color:aliceblue;
+            float: left;
+        }
+        section h2{
+            text-align: left;
+            border: 1px solid brown;
+            width: 50%;
+            letter-spacing: 5px;
+            padding-left: 8px;
+        }
+        #right{
+            width: 30%;
+            height: 650px;
+            background-color: black;
+            float: right;
+            color: aliceblue;
+            padding: 20px;
+        }
+        footer{
+            width: 100%;
+            height: 58px;
+            background-color:rgb(240, 144, 144);
+            clear: both;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+        form{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            
+        }
+        #firstname{
+            grid-column: 1;
+            grid-row: 1;
+            height: 30px;
+            width: 240px;
+            padding-left: 10px;
+        }
+        #lastname{
+            grid-column: 2;
+            grid-row: 1;
+            height: 30px;
+            width: 240px;
+            padding-left: 10px;
+        }
+        #mail{
+            grid-column: 1;
+            grid-row: 2;
+            height: 30px;
+            width: 240px;
+            padding-left: 10px;
+        }
+        #telephone{
+            grid-column: 2;
+            grid-row: 2;
+            height: 30px;
+            width: 240px;
+            padding-left: 10px;
+        }
+        #chon{
+            grid-column: 1;
+            grid-row: 3;
+            width: 240px;
+            height: 30px;
+        }
+        #nutradio{
+            grid-column: 2;
+            grid-row: 3;
+            border: none;
+           margin-left: 0;
+        }
+        #comment{
+            grid-column: 1/ span 2 ;
+            grid-row: 4;
+            width: 100%;
+            height: 50px;
+        }
+        #nut{
+            grid-column: 1;
+            grid-row: 5;
+            border: none;
+            width: 100px;
+            height: 25px;
+            display: flex;
+            margin-left: 0;
+        }
+        #submit{
+            margin-left: 0;
+            width: 50px;
+            height: 30px;
+
+        }
+        #cancel{
+           
+            margin-left: 0;
+            width: 50px;
+            height: 30px;
+
+        }
+        #right img{
+            width: 100%;
+        }
+        #event{
+            margin-left: 0;
+        }
+        #left p{
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>EXAMPLE CAFE MENU</header>
+        
+        <nav>
+            <hr>
+            <a id="nha" href="#"><img src="../images/icons8-home-50.png" width="20px"></a>
+            <a href="#">STARTER</a>
+            <a href="#">MAIN COURES</a>
+            <a href="#">DESSERTS</a>
+            <input id="text" type="text">
+            <input id="go" type="submit" value="Go">
+            <hr>
+        </nav>
+        <div id="left">
+            <p>###########</p>
+            <p>###########</p>
+            <p>###########</p>
+            <p>###########</p>
+            <p>###########</p>
+            <img src="../images/company.png">
+        </div>
+        <div id="right">
+            <h2 id="event">Events</h2>
+            <h3>Reguler Meeting</h3>
+            <img src="../images/meeting.png">
+            <p>Host your regular team meetings or activities in the comfort of your own private room. Charge up on Kith's aromatic coffee and delectable dishes for that extra boost in your work!</p>
+            <h3>Product Launches</h3>
+            <img src="../images/launch.png">
+            <p>Launch your product with ease in a space that truly fits its image. Create an unforgettable experience for your guests with our spacious outlets! Whether you want to host an intimate celebration or launch an event for hundreds of guests, Kith's space is customisable to your needs
+            </p>
+        </div>
+        <section>
+            <h2 style="margin-top: 1px;">Starter</h2>
+            <ul>
+                <li>Chesnut and Mushroom Goujons <span class="mau">(<span class="gach">v</span>)</span></li>
+                <li>Goat Cheese <span class="mau">(<span class="gach">v</span>)</span></li>
+                <li><span class="mau">HONEY SOY CHICKEN KEBAB(<span class="gach">V</span>)</span></li>
+                <li>Seafood Salad<span class="mau">(<span class="gach">v</span>)</span></li>
+            </ul>
+            <a href="#top">Back to Top</a>
+            <h2>Desserts</h2>
+            <ul>
+                <li>Lemon Sorbet<span class="mau">(<span class="gach">v</span>)</span></li>
+                <li>Chocolate Mud Pie<span class="mau">(<span class="gach">v</span>)</span></li>
+                <li>Pecan Pie<span class="mau">(<span class="gach">v</span>)</span></li>
+                <li>Selection of fine Cheese from Around the Workd<span class="mau">(<span class="gach">v</span>)</span></li>
+    
+            </ul>
+            <a href="#top">Back to Top</a>
+            <h2 style="margin-bottom: 2px;">INFORMATION</h2>
+            <form action="submit" method="post">
+                <input type="text" id="firstname" name="firstname" placeholder="FirstName">
+                <input type="text" id="lastname" name="lasttname" placeholder="LastName">
+                <input type="text" id="mail" name="mail" placeholder="Mail">
+                <input type="text" id="telephone" name="telephone" placeholder="Telephone">
+                <br>
+                <select id="chon" name="chon" size="n">
+                    <option value="Option1" selected >USA</option>
+                    <option value="Option1">####1</option>
+                    <option value="Option1">####</option>
+                    <option value="Option1">####</option> 
+                    <option value="Option1">####</option>
+                </select>
+                <fieldset id="nutradio">
+                    <input id="vn" type="radio" name="languge" value="Vietnamese">
+                    <label for="vn">Vietnamese</label>
+                    <input id="j" type="radio" name="languge" value="Japanese">
+                    <label for="vn">Japanese</label>
+                </fieldset>
+                <textarea id="comment" placeholder="Comment"></textarea>
+                <fieldset id="nut">
+                    <input id="submit" type="button" name="submit" value="Submit">
+                <input id="cancel" type="button" name="cancle" value="Cancel">
+                </fieldset>
+            </form> 
+        </section>
+        <footer>
+            <p>ABC Company<sup>&reg</sup> - 123456789 - abc@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html>

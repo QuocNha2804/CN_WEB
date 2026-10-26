@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 0;
+        }
+        #outer{
+            width: 700px;
+            height: 800px;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            text-align: right;
+            border-bottom: 3px solid salmon;
+        }
+        nav{
+            width: 30%;
+            height: 700px;
+            background-image: url(../images/back.jpg);
+            float: left;
+            background-repeat: repeat-y;
+            padding-left: 5px;
+        }
+        section{
+            width: 70%;
+            height: 650px;
+            float: right;
+            padding: 15px;
+            position: relative;
+        }
+        footer{
+            width: 70%;
+            height: 50px;
+            float: right;
+            color: rgb(181, 116, 31);
+            text-align: center;
+            border-top: 3px solid sandybrown;
+        }
+        header img{
+            height: 90px;
+
+        }
+        nav a{
+            text-decoration: none;
+            color: blueviolet;
+            border-bottom: 2px dashed blueviolet;
+            padding-bottom: 5px;
+            line-height: 30px;
+        }
+        section img{
+            width: 400px;
+            margin-top: 40px;
+        }
+        .box{
+            border: 1px solid black;
+            position: absolute;
+            box-shadow: -5px -5px 5px rgb(235, 164, 101);
+
+        }
+        #box1{
+            width: 170px;
+            height: 200px;
+            left: 300px;
+            bottom: 400px;
+            background-color: antiquewhite;
+        }
+        #box2{
+            width: 170px;
+            height: 120px;
+            left: -35px;
+            bottom: 300px;
+            background-color: antiquewhite;
+        }
+        #box3{
+            width: 170px;
+            height: 120px;
+            left: 300px;
+            bottom: 100px;
+            background-color: antiquewhite;
+        }
+        section h1{
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(236, 126, 47);
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <header>
+            <img src="../images/scraps.jpg">
+        </header>
+        <nav>
+            <a href="#">Home</a><br>
+            <a href="#">Getting Started</a><br>
+            <a href="#">Scrapbooking Tips</a><br>
+            <a href="#">Supply List</a><br>
+            <a href="#">Online Classes</a><br>
+            <a href="#">Sample Pages</a><br>
+            <a href="#">Online Store</a><br>
+            <a href="#">Shopping Cart</a><br>
+            <a href="#">Checkout</a><br>
+            <a href="#">Your Account</a><br>
+            <a href="#">Order Status</a><br>
+            <a href="#">Wish List</a><br>
+            <a href="#">Customer Service</a><br>
+            <a href="#">About Us</a><br>
+            <a href="#">Newsletter</a><br>
+            <a href="#">FAQ</a><br>
+            <a href="#">Contact Us</a><br>
+
+        </nav>
+        <section>
+            <h1>Samples from Online Scrapbooks</h1>
+            <img src="../images/sample.jpg">
+            <p id="box1" class="box">Cascading Style Sheets (CSS) is a fantastic tool to add layout to your websites. It can save you a lot of time and it enables you to design websites in a completely new way. CSS is a must for anyone working with web design.</p>
+            <p id="box2" class="box">This tutorial will get you started with CSS in just a few hours. It is easy to understand and it will teach you all the sophisticated techniques.</p>
+            <p id="box3" class="box">Learning CSS is fun. As you go along through the tutorial, remember to take enough time to properly experiment with what you learn in each lesson.</p>
+        </section>
+        <footer>sample page</footer>
+    </div>
+</body>
+</html>

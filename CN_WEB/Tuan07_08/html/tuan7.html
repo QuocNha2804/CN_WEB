@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    <title>Tuần 07</title>
+</head>
+<body>
+    <div class="container-fluid p-0 m-0">
+        <img src="../img/banner_car.jpg" class="w-100" alt="banner">
+        <div class="row">
+            <div class="col-3 p-0 m-0">
+                <table class="table table-bordered text-center align-middle m-0">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th colspan="2" class="fw-bold text-primary">Bảng tin thị trường</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-secondary">
+                            <td class="fw-bold text-info" colspan="2">Vàng</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-info col-6" style="height: 40px;">Mua vào</td>
+                            <td class="fw-bold text-info col-6" style="height: 40px;">Bán ra</td>
+                        </tr>
+                        <tr>
+                            <td id="vang-mua" class="fw-bold text-info col-6" style="height: 40px;"></td>
+                            <td id="vang-ban" class="fw-bold text-info col-6" style="height: 40px;"></td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td class="fw-bold text-info" colspan="2">USD</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-info col-6" style="height: 40px;">Mua vào</td>
+                            <td class="fw-bold text-info col-6" style="height: 40px;">Bán ra</td>
+                        </tr>
+                        <tr>
+                            <td id="usd-mua" class="fw-bold text-info col-6" style="height: 40px;"> </td>
+                            <td id="usd-ban" class="fw-bold text-info col-6" style="height: 40px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4 p-0 m-0">
+                <table class="table table-bordered align-middle m-0">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th colspan="2" class="fw-bold text-primary text-center">Cập nhật giá cả thị trường</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-secondary">
+                        <tr >
+                            <td class="fw-bold text-dark">Mua vào</td>
+                            <td class="p-0 m=0">
+                                <input type="text" id="muavao" class="form-control" style="width: 60%;">
+                            </td>
+                        </tr>
+                        <tr >
+                            <td class="fw-bold text-dark">Bán ra</td>
+                            <td class="p-0 m=0">
+                                <input type="text" id="banra" class="form-control" style="width: 60%;">
+                            </td>
+                        </tr>
+                        <tr >
+                            <td class="fw-bold text-dark">Loại xe</td>
+                            <td class="p-0 m=0">
+                                <select name="select" id="loaixe" class="form-select" style="width: 30%;">
+                                    <option value="mercedes" >Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="chevrolet" selected>Chevrolet</option>
+                                    <option value="ford">Ford</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td class="fw-bold text-dark" style="height: 40px;"></td>
+                            <td class="p-0 m=0"  style="height: 40px;">
+                                <input type="radio" name="radio" id="vang" style="margin-right: 5px;" class="form-check-input">Vàng
+                                <input type="radio" name="radio" id="usd" style="margin-right: 5px" class="form-check-input">USD
+                            </td>
+                        </tr>
+                        <tr >
+                            <td class="fw-bold text-dark"></td>
+                            <td class="p-0 m=0 d-flex">
+                                <button type="button" style="margin-right: 5px; height: 40px; width: 20%;" class="form-control" id="update">Update</button>
+                                <button type="button" style="padding: 2px; height: 40px; width: 20%;"  class="form-control" id="state">State</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5 m-0 p-0">
+                <table class="table table-bordered align-middle m-0">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th class="fw-bold text-primary text-center">Bảng tin thị trường</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-info  fw-bold">
+                           <td>
+                                <p>Với kiểu dáng sang trọng</p>
+                                <p>Nổi bật, ít tốn nhiên liệu</p>
+                                <p>Kiểu dáng thể thao</p>
+                           </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center table-secondary"><img src="../img/car4.jpg" alt="car"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-success fw-bold p-0 m-0">Giá: 40000 USD</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        //1
+        window.onload = function () {
+            // Focus vào ô Mua vào
+            document.getElementById("muavao").focus();
+            // Disable nút State
+            document.getElementById("state").disabled = true;
+        };
+
+        // 2. Khi blur khỏi ô Mua vào
+            document.getElementById('muavao').addEventListener('blur', function () {
+            let value = this.value.trim();
+            let isNumber = !isNaN(value) && value !== "";
+
+            document.getElementById("state").disabled = !isNumber;
+        });
+
+        // 3. Khi chọn loại xe
+            document.getElementById('loaixe').addEventListener('change', function () {
+            let selected = this.value;
+
+        // Dữ liệu giả định cho từng loại xe
+            let xeData = {
+             mercedes: {
+                img: "../img/car9.jpg",
+                price: "35000 USD"
+            },
+            audi: {
+                img: "../img/car12.jpg",
+                price: "32000 USD"
+            },
+            chevrolet: {
+                img: "../img/car4.jpg",
+                price: "40000 USD"
+            },
+            ford: {
+                img: "../img/car5.jpg",
+                price: "28000 USD"
+            }
+        };
+
+        // Lấy phần tử bảng bên phải
+            let imgCell = document.querySelector('.col-5 img');
+            let priceText = document.querySelector('.col-5 p.text-success');
+
+            if (xeData[selected]) {
+                imgCell.src = xeData[selected].img;
+                priceText.innerText = "Giá: " + xeData[selected].price;
+            }
+        });
+        //4
+            document.getElementById("update").addEventListener('click', function () {
+            let muavao = document.getElementById('muavao').value;
+            let banra = document.getElementById('banra').value;
+            let isVang = document.getElementById('vang').checked;
+            let isUSD = document.getElementById('usd').checked;
+
+            if (isVang) {
+        // Cập nhật bảng vàng
+                document.getElementById('vang-mua').innerText = muavao;
+                document.getElementById('vang-ban').innerText = banra;
+            } else if (isUSD) {
+        // Cập nhật bảng USD
+                document.getElementById('usd-mua').innerText = muavao;
+                document.getElementById('usd-ban').innerText = banra;
+            } else {
+                alert("Vui lòng chọn Vàng hoặc USD!");
+            }
+        });
+
+
+    </script>
+</body>
+</html>

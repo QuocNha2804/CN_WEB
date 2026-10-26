@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../css/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .container-fluid {
+      background: url(../img/hero-bg.jpg);
+      background-size: cover;
+      height: 100vh;
+    }
+    .main-content {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .dots {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 100px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+    .dot:hover {
+      cursor: pointer;
+    }
+    .dot.active {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: orange;
+    }
+    .nav-item {
+      cursor: pointer;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+  </style>
+  <body>
+    <div class="container-fluid">
+      <div class="main-content">
+        <div class="row align-items-center">
+          <div class="col-4">
+            <h1 class="text-white"><i>Feare</i></h1>
+          </div>
+          <div class="col-5">
+            <ul class="nav">
+              <li class="nav-item align-items-center">
+                <a href="home.html" class="nav-link text-white">HOME</a>
+              </li>
+              <li>
+                <a href="menu.html" class="nav-link text-white">MENU</a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link text-white">ABOUT</a>
+              </li>
+              <li>
+                <a href="book.html" class="nav-link text-white">BOOK TABLE</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <ul class="nav align-items-center justify-content-around">
+              <li class="nav-item">
+                <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              </li>
+              <li class="nav-item">
+                <i
+                  ><i
+                    class="fa-solid fa-cart-shopping"
+                    style="color: #ffffff"
+                  ></i
+                ></i>
+              </li>
+              <li class="nav-item">
+                <i
+                  ><i
+                    class="fa-solid fa-magnifying-glass"
+                    style="color: #ffffff"
+                  ></i
+                ></i>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                >
+                  Order Online
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" style="margin: 100px 0">
+          <div class="col-7">
+            <h1 class="text-white" style="font-size: 60px">
+              <i>Fast Food Restaurant</i>
+            </h1>
+            <p class="text-white mt-4">
+              Doloremque, itaque aperiam facilis rerum, commodi, temporibus
+              sapiente ad mollitia laborum quam quisquam esse error unde.
+              Tempora ex doloremque, labore, sunt repellat dolore, iste magni
+              quos nihil ducimus libero ipsam.
+            </p>
+            <a href="order.html" class="btn btn-warning">Order Now</a>
+            <div class="dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-warning">Order</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="">Telephone</label>
+            <br /><br />
+            <input type="tel" name="" id="" class="form-control" /><br />
+            <label for="">Email</label><br /><br />
+            <input type="email" name="" id="" class="form-control" /><br />
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="" />
+              <label class="form-check-label" for=""> Check me out </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Order</button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-bs-dismiss="modal"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

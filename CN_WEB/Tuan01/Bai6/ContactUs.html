@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body{
+            border: 2px solid blue;
+            width: 40%;
+            margin: 200px auto;
+            padding: 2px;
+        }
+        #o1 input{
+            text-align: left;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        #o1{
+            border: 2px solid grey;
+            padding: 5px;
+            margin: 0 auto;
+            width: 98%;
+        }
+        #o2{
+            border: 2px solid grey;
+            padding: 5px;
+            margin: 0 auto;
+            width: 98%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Us</h1>
+    <h5 style="font-weight: 100;">Your message:</h5>
+    <div id="o1">
+        To <input type="text"><br>
+        Your email <input type="text"><br>
+         
+        Message<textarea style="width: 50%; height: 500px;"></textarea><br>
+        Attach File <input type="file" value="Choose File"><br>
+    </div>
+    <h5>How you found us:</h5>
+    <div id="o2">
+        How did you here of us <select><option>Google</option></select><br>
+        Newsltter <input type="checkbox" value="Ensure this box is checked if you would like to receive email updates">Ensure this box is checked if you would like to receive email updates
+    </div>
+    <input type="submit" value="Send Message" style="margin-top: 5px;">
+</body>
+</html>

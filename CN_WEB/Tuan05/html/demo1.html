@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../css/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <script>
+      function kiemTraTen() {
+        let ten = document.getElementById("txtTen").value;
+        let mauTen = /^[A-Z][A-Za-z]*(\s[A-Z][A-Za-z]*)+$/;
+        if (mauTen.test(ten)) {
+          document.getElementById("errTen").innerHTML = "Ok";
+          return true;
+        } else {
+          document.getElementById("errTen").innerHTML = "Sai";
+          return false;
+        }
+      }
+      function kiemTraTuoi() {
+        let ns = document.getElementById("txtDate").value;
+        let nam = new Date(ns);
+        let namHienTai = new Date();
+        let tuoi = namHienTai.getFullYear() - nam.getFullYear();
+        if (tuoi >= 16) {
+          document.getElementById("errDate").innerHTML = "Ok";
+          return true;
+        } else {
+          document.getElementById("errDate").innerHTML = "Sai";
+          return false;
+        }
+      }
+      function kiemTraCity() {
+        let city = document.getElementById("txtCity").value.trim();
+        let checkCity = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+        if (checkCity.test(city)) {
+          document.getElementById("errCity").innerHTML = "Ok";
+          return true;
+        } else {
+          document.getElementById("errCity").innerHTML = "Sai";
+          return false;
+        }
+      }
+      function kiemTraMail() {
+        let mail = document.getElementById("txtMail").value;
+        let mailCheck = /^[A-Za-z0-9]{6,7}\@[a-z]{4,5}\.com$/;
+        if (mailCheck.test(mail)) {
+          document.getElementById("errMail").innerHTML = "Ok";
+          return true;
+        } else {
+          document.getElementById("errMail").innerHTML = "Sai";
+          return false;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container bg-info" style="height: 700px">
+      <div class="row">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Link 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Link 4</a>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#thisModal"
+            >
+              Open
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <img
+          src="../img/magazin.jpg "
+          alt="magazin "
+          height="500px"
+          style="object-fit: cover"
+        />
+      </div>
+      <div class="row">
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th>Colummn 1</th>
+              <th>Colummn 2</th>
+              <th>Colummn 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Colummn 1</td>
+              <td>Colummn 2</td>
+              <td>Colummn 3</td>
+            </tr>
+            <tr>
+              <td>Colummn 1</td>
+              <td>Colummn 2</td>
+              <td>Colummn 3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal" id="thisModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>This Modal</h3>
+            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <label for="">Name</label><br />
+            <input
+              class="form-control"
+              id="txtTen"
+              type="text"
+              placeholder="Name"
+              onblur="kiemTraTen()"
+            />
+            <span class="text-danger" id="errTen">*</span><br />
+            <label for="">Mail</label><br />
+            <input
+              class="form-control"
+              id="txtMail"
+              type="text"
+              placeholder="Mail"
+              onblur="kiemTraMail()"
+            />
+            <span class="text-danger" id="errMail">*</span><br />
+            <label for="">Date</label><br />
+            <input
+              class="form-control"
+              id="txtDate"
+              type="date"
+              placeholder=""
+              onblur="kiemTraTuoi()"
+            />
+            <span class="text-danger" id="errDate">*</span><br />
+            <label for="">City</label><br />
+            <input
+              class="form-control"
+              id="txtCity"
+              type="text"
+              placeholder="City"
+              onblur="kiemTraCity()"
+            />
+            <span class="text-danger" id="errCity">*</span><br />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead class="text-center">
+                <tr>
+                    <th class="col-2">STT</th>
+                    <th class="col-4">Hình Ảnh</th>
+                    <th class="col-3">Đơn giá</th>
+                    <th class="col-3">Số Lượng</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                <!-- 1 -->
+                <tr>
+                    <td>
+                        <p id="stt1">1</p>
+                    </td>
+                    <td class="text-center">
+                        <img src="../img/car1.jpg" alt="xe1">
+                    </td>
+                    <td>
+                        <p id="gia1">20000</p>
+                    </td>
+                    <td>
+                        <input type="text" id="sl1" class="form-control" style="width: 60%;">
+                    </td>
+                </tr>
+                <!-- 2 -->
+                <tr>
+                    <td>
+                        <p id="stt2">2</p>
+                    </td>
+                    <td class="text-center">
+                        <img src="../img/car2.jpg" alt="xe2">
+                    </td>
+                    <td>
+                        <p id="gia2">30000</p>
+                    </td>
+                    <td>
+                        <input type="text" id="sl2" class="form-control" style="width: 60%;">
+                    </td>
+                </tr>
+                <!-- 3 -->
+                <tr>
+                    <td>
+                        <p id="stt3">3</p>
+                    </td>
+                    <td class="text-center">
+                        <img src="../img/car3.jpg" alt="xe3">
+                    </td>
+                    <td>
+                        <p id="gia3">40000</p>
+                    </td>
+                    <td>
+                        <input type="text" id="sl3" class="form-control" style="width: 60%;">
+                    </td>
+                </tr>
+                <!-- 4 -->
+                <tr>
+                    <td>
+                        <p id="stt4">4</p>
+                    </td>
+                    <td class="text-center">
+                        <img src="../img/car4.jpg" alt="xe4">
+                    </td>
+                    <td>
+                        <p id="gia4">50000</p>
+                    </td>
+                    <td>
+                        <input type="text" id="sl4" class="form-control" style="width: 60%;">
+                    </td>
+                </tr>
+                <!-- 5 -->
+                <tr>
+                    <td>
+                        <p id="stt5">5</p>
+                    </td>
+                    <td class="text-center">
+                        <img src="../img/car5.jpg" alt="xe5">
+                    </td>
+                    <td>
+                        <p id="gia5">60000</p>
+                    </td>
+                    <td>
+                        <input type="text" id="sl5" class="form-control" style="width: 60%;">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <p class="fw-bold">Tổng Thành Tiền:</p>
+                    </td>
+                    <td>
+                        <p id="thanhtien">0 USD</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function tinhTongThanhTien() {
+            let tong = 0;
+            for (let i = 1; i <= 5; i++) {
+                let soLuong = parseInt(document.getElementById("sl" + i).value) || 0;
+                let donGia = parseInt(document.getElementById("gia" + i).innerText) || 0;
+                tong += soLuong * donGia;
+            }
+            document.getElementById("thanhtien").innerText = tong.toLocaleString('vi-VN') + " USD";
+        }
+    
+        // Gọi hàm mỗi khi thay đổi số lượng
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById("sl" + i).addEventListener("input", tinhTongThanhTien);
+        }
+    </script>
+    
+</body>
+</html>
